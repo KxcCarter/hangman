@@ -8,7 +8,7 @@ const LetterDisplay = (props) => {
     display: 'inline',
     fontSize: '2.7rem',
     padding: '3px',
-    webkitTextSecurity: props.visible ? null : 'disc',
+    WebkitTextSecurity: props.visible ? null : 'disc',
   };
 
   return <p style={style}>{props.letter}</p>;

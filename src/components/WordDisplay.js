@@ -5,14 +5,16 @@ const word = 'Encyclopedia';
 const letterArray = word.split('');
 
 const WordDisplay = (props) => {
-  const renderedLetter = letterArray.map((letter) => {
-    return <LetterDisplay letter={letter} visible={true} />;
+  const renderedLetter = letterArray.map((letter, index) => {
+    return <LetterDisplay letter={letter} visible={true} key={index} />;
   });
 
   return (
-    <div>
-      <h2>I am a word</h2>
-      {renderedLetter}
+    <div className="ui raised very padded text container segment">
+      <div className="content">
+        <h2 className="ui header">Guess the word!</h2>
+        {renderedLetter}
+      </div>
     </div>
   );
 };
