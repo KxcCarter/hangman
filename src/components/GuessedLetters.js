@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
+const style = {
+  border: '1px solid black',
+  padding: '5px',
+  margin: '5px',
+  display: 'inline',
+};
 
 const GuessedLetters = (props) => {
-  //   const [letters, setLetters] = useState(null);
-  //   useEffect(() => {
-  //     // updateListOfLetters();
-  //     console.log(letters);
-  //   }, [props.letters]);
-
-  //   const updateListOfLetters = () => {
-  //     setLetters(props.letters);
-  //   };
+  const guessedLetters = props.letters.map((letter, index) => {
+    return (
+      <h3 key={index} style={style} className="description centered">
+        {letter}
+      </h3>
+    );
+  });
 
   return (
     <div className="ui cards">
       <div className="ui fluid card">
         <div className="content">
           <h4 className="ui header centered">You have used these letters!</h4>
-          {/* <p>{letters}</p> */}
-          <h3 className="description centered">{props.letters}</h3>
+          {guessedLetters}
         </div>
       </div>
     </div>

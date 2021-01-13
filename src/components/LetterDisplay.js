@@ -7,7 +7,7 @@ const LetterDisplay = (props) => {
     letterSpacing: '1rem',
     display: 'inline',
     fontSize: '2.7rem',
-    padding: '3px',
+    padding: '5px',
     WebkitTextSecurity: props.visible ? null : 'disc',
   };
 
