@@ -2,27 +2,26 @@ import React from 'react';
 
 const style = {
   border: '1px solid black',
-  padding: '5px',
-  margin: '5px',
+  padding: '4px',
+  margin: '4px',
   display: 'inline',
+  boxShadow: '1px 2px 3px black',
 };
 
 const GuessedLetters = (props) => {
   const guessedLetters = props.letters.map((letter, index) => {
     return (
-      <h3 key={index} style={style} className="description centered">
+      <p key={index} style={style} className="center aligned description">
         {letter}
-      </h3>
+      </p>
     );
   });
 
   return (
-    <div className="ui cards">
-      <div className="ui fluid card">
-        <div className="content">
-          <h4 className="ui header centered">You have used these letters!</h4>
-          {guessedLetters}
-        </div>
+    <div className="card">
+      <div className="content">
+        <h3 className="center aligned">You have used these letters!</h3>
+        {guessedLetters}
       </div>
     </div>
   );

@@ -11,14 +11,14 @@ const App = () => {
 
   const getWord = async () => {
     const { data } = await randomWordFetcher.get();
-
     console.log(`Hey! No cheating! The word is ${data[0]}`);
-
     setWord(data[0]);
   };
 
   return (
-    <div className="ui container">{word && <HangmanGame word={word} />}</div>
+    <div className="ui container grid">
+      {word && <HangmanGame word={word} />}
+    </div>
   );
 };
 
