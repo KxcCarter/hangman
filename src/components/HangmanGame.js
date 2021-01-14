@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import WordDisplay from './WordDisplay';
 import GuessedLetters from './GuessedLetters';
 import MistakesCounter from './MistakesCounter';
-import EndGameMessage from './EndGameMessage';
+import EndGameModal from './EndGameModal';
 
 const numberOfWrongGuessesAllowed = 6;
 let mistakes = 0;
@@ -84,7 +84,7 @@ const HangmanGame = ({ word }) => {
       <div className="ui massive message">
         Use your keyboard to guess a letter in the word!
       </div>
-      {gameOver && <EndGameMessage win={gameWin} lose={gameLose} />}
+      {gameOver && <EndGameModal win={gameWin} lose={gameLose} />}
     </div>
   );
 };
