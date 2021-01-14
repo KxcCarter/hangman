@@ -1,6 +1,6 @@
-# Simple Hangman Game
+# Simple Hangman Game Using React
 
-## Dependancies
+## Dependencies
 
 You will need to install axios in order for this app to function.
 
@@ -8,6 +8,8 @@ You will need to install axios in order for this app to function.
 
 I used this open-source API for getting random words.
 [Random Word API](https://random-word-api.herokuapp.com/)
+
+Styled with Semantic-UI
 
 ## Gameplay
 
