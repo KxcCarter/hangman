@@ -68,7 +68,10 @@ const HangmanGame = ({ word }) => {
 
   return (
     <div className="ui column fourteen wide centered">
-      <h2 className="ui header centered">Guess the word!</h2>
+      <h1 style={{ paddingTop: '10px' }} className="ui header centered">
+        Hangman!
+      </h1>
+
       <div className="ui row">
         <div className="ui two cards">
           <GuessedLetters letters={guesses} />
