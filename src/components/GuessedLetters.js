@@ -20,7 +20,9 @@ const GuessedLetters = (props) => {
   return (
     <div className="card">
       <div className="content">
-        <h3 className="center aligned">You have used these letters!</h3>
+        <h3 className="center aligned">
+          You have already guessed these letters!
+        </h3>
         {guessedLetters}
       </div>
     </div>

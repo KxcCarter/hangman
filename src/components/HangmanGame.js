@@ -5,8 +5,7 @@ import GuessedLetters from './GuessedLetters';
 import MistakesCounter from './MistakesCounter';
 import EndGameModal from './EndGameModal';
 
-const numberOfWrongGuessesAllowed = 6;
-let mistakes = 0;
+let numberOfWrongGuessesAllowed = 6;
 
 const guessedLettersSet = new Set();
 let guessedLettersArray = [];
@@ -15,7 +14,6 @@ const HangmanGame = ({ word }) => {
   const [guesses, setGuesses] = useState(guessedLettersArray);
   const [gameOver, setGameOver] = useState(false);
   const [gameWin, setGameWin] = useState(false);
-  const [gameLose, setGameLose] = useState(false);
 
   useEffect(() => {
     document.addEventListener('keypress', handleKeypress);
@@ -46,17 +44,15 @@ const HangmanGame = ({ word }) => {
     // test given key against word
     if (!RegExp(key, 'i').test(word)) {
       // if test fails, increment mistakes counter.
-      mistakes++;
-      console.log(key, mistakes);
+      numberOfWrongGuessesAllowed--;
     }
   };
 
   const checkWinConditions = () => {
-    if (mistakes >= numberOfWrongGuessesAllowed) {
+    if (numberOfWrongGuessesAllowed <= 0) {
       // remove event listener in case of loss
       document.removeEventListener('keypress', handleKeypress);
-      console.log('You lost');
-      setGameLose(true);
+      setGameWin(false);
       setGameOver(true);
     }
 
@@ -65,7 +61,6 @@ const HangmanGame = ({ word }) => {
     if (wordArray.every((letter) => guesses.includes(letter))) {
       // remove event listener in case of win
       document.removeEventListener('keypress', handleKeypress);
-      console.log('You win!');
       setGameWin(true);
       setGameOver(true);
     }
@@ -77,14 +72,14 @@ const HangmanGame = ({ word }) => {
       <div className="ui row">
         <div className="ui two cards">
           <GuessedLetters letters={guesses} />
-          <MistakesCounter mistakes={mistakes} />
+          <MistakesCounter guessesRemaining={numberOfWrongGuessesAllowed} />
         </div>
       </div>
       <WordDisplay guesses={guesses} word={word} />
       <div className="ui massive message">
         Use your keyboard to guess a letter in the word!
       </div>
-      {gameOver && <EndGameModal win={gameWin} lose={gameLose} />}
+      {gameOver && <EndGameModal win={gameWin} />}
     </div>
   );
 };

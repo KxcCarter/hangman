@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const EndGameModal = ({ win, lose }) => {
+const EndGameModal = ({ win }) => {
   const style = {
     textAlign: 'center',
   };
